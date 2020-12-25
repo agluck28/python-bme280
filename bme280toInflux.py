@@ -1,4 +1,4 @@
-import time, board, busio, Adafruit_BME280, json
+import time, board, busio, adafruit_bme280, json
 from Flux.Flux import Writer
 from PointWriter.PointWriter import PointWriter
 
@@ -10,7 +10,7 @@ This is setup to send data at a rate of roughly once per minute
 '''
 
 #read constants from configuration file
-with open('.\\.configuration\\db_settings.json.local') as jsondata:
+with open('./.configuration/db_settings.json.local') as jsondata:
     config = json.load(jsondata)
 
 #open up a writer connection
@@ -35,4 +35,5 @@ while True:
         #check if valid value, and if not, try again
         if (20 < data['temperature'] < 100) and (0 < data['humidity'] < 100):
                 temp_point = base_point.add_fields(data, time.time_ns())
+                db_writer.write_data(temp_point)
                 time.sleep(60)
