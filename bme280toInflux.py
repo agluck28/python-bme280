@@ -27,7 +27,7 @@ data = {
 }
 
 #setup base point
-base_point = PointWriter('home',('room', 'Living_Room'))
+base_point = PointWriter(config['roomId'],('deviceId', config['deviceId']))
 
 while True:
         data['temperature'] = (bme280.temperature * 9/5) +32

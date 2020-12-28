@@ -1,6 +1,8 @@
 {
     "token": "sometoken",
     "org": "someorg",
-    "bucket": "somebucket",
+    "bucket": "thebucket",
+    "roomId": "someroomid",
+    "deviceId": "somedeviceid",
     "url": "someurl"
 }
