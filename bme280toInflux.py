@@ -46,7 +46,7 @@ while True:
     data['measurements']['temperature'] = (test.temperature * 9/5) + 32
     data['measurements'] = test.humidity
     # check if valid value, and if not, try again
-    if (20 < data['temperature'] < 100) and (0 < data['humidity'] < 100):
+    if (20 < data['measurements']['temperature'] < 100) and (0 < data['measurements']['humidity'] < 100):
         data['time'] = time.time_ns()
         rabbit.send_message(data)
         time.sleep(60)
